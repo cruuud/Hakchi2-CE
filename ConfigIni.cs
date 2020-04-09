@@ -226,6 +226,7 @@ namespace com.clusterrr.hakchi_gui
         public bool DisablePopups = false;
         public bool SeparateGameStorage = true;
         public bool SyncLinked = true;
+        public bool UsbModeOnly = false;
         public bool AlwaysCopyOriginalGames = false;
         public string FtpCommand = @"explorer.exe";
         public string FtpArguments = @"ftp://{0}:{1}@{2}:{3}";
@@ -589,6 +590,9 @@ namespace com.clusterrr.hakchi_gui
                                         break;
                                     case "synclinked":
                                         instance.SyncLinked = !value.ToLower().Equals("false");
+                                        break;
+                                    case "usbmodeonly":
+                                        instance.UsbModeOnly = !value.ToLower().Equals("false");
                                         break;
                                     case "exportregion":
                                         //instance.ExportRegion = value;

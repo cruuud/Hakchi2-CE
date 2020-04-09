@@ -41,7 +41,7 @@ namespace com.clusterrr.hakchi_gui
         private const uint GENERIC_WRITE = 0x40000000;
         private const uint FILE_SHARE_WRITE = 0x2;
         private const uint OPEN_EXISTING = 0x3;
-        public static readonly string BaseDirectoryInternal = Path.GetDirectoryName(Application.ExecutablePath);
+        public static string BaseDirectoryInternal = Path.GetDirectoryName(Application.ExecutablePath);
         public static string BaseDirectoryExternal;
         public static bool isPortable = false;
         public static List<Stream> debugStreams = new List<Stream>();
@@ -135,7 +135,31 @@ namespace com.clusterrr.hakchi_gui
             }
             Trace.AutoFlush = true;
 #endif
-            isPortable = !args.Contains("/nonportable") || args.Contains("/portable");
+            isPortable = args == null || !args.Contains("/nonportable") || args.Contains("/portable");
+
+            
+            //When running on mounted ext4 disks, or wherever a .NET executable does not have normal network access,
+            //run the executable locally and everything else on the external share
+            //Of course, only applies to portable configs            
+            if (isPortable)
+            {
+                var basedirFile = Path.Combine(BaseDirectoryInternal, "hakchi.basedir");
+                if (args != null)
+                {
+                    var basedirIndex = -1;
+                    if ((basedirIndex = Array.IndexOf(args, "--basedir")) != -1)
+                    {
+                        if ((basedirIndex + 1) < args.Length)
+                        {
+                            File.WriteAllText(basedirFile, args[basedirIndex + 1]);
+                        }
+                    }
+                }
+                if (File.Exists(basedirFile))
+                {                    
+                    BaseDirectoryInternal = File.ReadAllText(basedirFile);
+                }
+            }
 
             if (File.Exists(Path.Combine(BaseDirectoryInternal, "nonportable.flag")))
                 isPortable = false;

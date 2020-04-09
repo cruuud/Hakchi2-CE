@@ -119,6 +119,7 @@
             this.separateGamesForMultibootToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alwaysCopyOriginalGamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.useLinkedSyncToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.useUsbOnlyModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripSeparator();
             this.cloverconHackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetUsingCombinationOfButtonsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -763,6 +764,7 @@
             this.separateGamesForMultibootToolStripMenuItem,
             this.alwaysCopyOriginalGamesToolStripMenuItem,
             this.useLinkedSyncToolStripMenuItem,
+            this.useUsbOnlyModeToolStripMenuItem,
             this.toolStripMenuItem16,
             this.cloverconHackToolStripMenuItem,
             this.globalCommandLineArgumentsexpertsOnluToolStripMenuItem,
@@ -973,6 +975,15 @@
             this.useLinkedSyncToolStripMenuItem.Name = "useLinkedSyncToolStripMenuItem";
             resources.ApplyResources(this.useLinkedSyncToolStripMenuItem, "useLinkedSyncToolStripMenuItem");
             this.useLinkedSyncToolStripMenuItem.Click += new System.EventHandler(this.useLinkedSyncToolStripMenuItem_Click);
+            // 
+            // useUsbOnlyModeToolStripMenuItem
+            // 
+            this.useUsbOnlyModeToolStripMenuItem.Checked = true;
+            this.useUsbOnlyModeToolStripMenuItem.CheckOnClick = true;
+            this.useUsbOnlyModeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.useUsbOnlyModeToolStripMenuItem.Name = "useUsbOnlyModeToolStripMenuItem";
+            resources.ApplyResources(this.useUsbOnlyModeToolStripMenuItem, "useUsbOnlyModeToolStripMenuItem");
+            this.useUsbOnlyModeToolStripMenuItem.Click += new System.EventHandler(this.useUsbOnlyModeToolStripMenuItem_Click);
             // 
             // toolStripMenuItem16
             // 
@@ -2474,6 +2485,7 @@
         private System.Windows.Forms.ToolStripMenuItem removePrefixToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem enableInformationScrapeOnImportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem useUsbOnlyModeToolStripMenuItem;
     }
 }
 

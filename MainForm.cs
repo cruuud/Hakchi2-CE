@@ -199,6 +199,8 @@ namespace com.clusterrr.hakchi_gui
                 }
                 openFileDialogNes.Filter = extensions.Trim('|');
 
+                buttonStart.Enabled = !ConfigIni.Instance.UsbModeOnly;
+
                 // Loading games database in background
                 new Thread(NesGame.LoadCache).Start();
                 new Thread(SnesGame.LoadCache).Start();
@@ -616,6 +618,7 @@ namespace com.clusterrr.hakchi_gui
             separateGamesForMultibootToolStripMenuItem.Checked = ConfigIni.Instance.SeparateGameStorage;
             disableHakchi2PopupsToolStripMenuItem.Checked = ConfigIni.Instance.DisablePopups;
             useLinkedSyncToolStripMenuItem.Checked = ConfigIni.Instance.SyncLinked;
+            useUsbOnlyModeToolStripMenuItem.Checked = ConfigIni.Instance.UsbModeOnly;
             alwaysCopyOriginalGamesToolStripMenuItem.Checked = ConfigIni.Instance.AlwaysCopyOriginalGames;
 
             // sfrom tool
@@ -2738,6 +2741,13 @@ namespace com.clusterrr.hakchi_gui
         {
             ConfigIni.Instance.SyncLinked = useLinkedSyncToolStripMenuItem.Checked;
         }
+
+        private void useUsbOnlyModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
+            ConfigIni.Instance.UsbModeOnly = useUsbOnlyModeToolStripMenuItem.Checked;
+            buttonStart.Enabled = !ConfigIni.Instance.UsbModeOnly;
+        }
+
 
         private void alwaysCopyOriginalGamesToolStripMenuItem_Click(object sender, EventArgs e)
         {
