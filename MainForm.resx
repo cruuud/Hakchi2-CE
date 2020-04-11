@@ -656,10 +656,22 @@
     <value>Use linked sync</value>
   </data>
   <data name="useUsbOnlyModeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
+    <value>313, 22</value>
   </data>
   <data name="useUsbOnlyModeToolStripMenuItem.Text" xml:space="preserve">
     <value>Use USB only mode</value>
+  </data>
+  <data name="autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem.Text" xml:space="preserve">
+    <value>Auto-select HAKCHI2 volume as external USB</value>
+  </data>
+  <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 22</value>
+  </data>
+  <data name="toolStripMenuItem7.Text" xml:space="preserve">
+    <value>USB MODE</value>
   </data>
   <data name="toolStripMenuItem16.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 6</value>
@@ -4038,10 +4050,22 @@
   <data name="&gt;&gt;useLinkedSyncToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripMenuItem7.Name" xml:space="preserve">
+    <value>toolStripMenuItem7</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;useUsbOnlyModeToolStripMenuItem.Name" xml:space="preserve">
     <value>useUsbOnlyModeToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;useUsbOnlyModeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem.Name" xml:space="preserve">
+    <value>autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem16.Name" xml:space="preserve">

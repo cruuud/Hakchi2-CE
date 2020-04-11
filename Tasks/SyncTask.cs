@@ -82,6 +82,48 @@ namespace com.clusterrr.hakchi_gui.Tasks
             tasker.SetStatus(Resources.SelectDrive);
             try
             {
+                // When using USB only AND autoselect Hakchi2 USB, it will scan for drives with the HAKCHI2 Volume label,
+                // if found it will use that without any confirmnation. Not an option anybody would like, but I like it.
+                if(ConfigIni.Instance.UsbModeOnly && ConfigIni.Instance.AutoSelectHakchi2Usb)
+                { 
+                    DriveInfo[] allDrives = DriveInfo.GetDrives();
+                    foreach (DriveInfo drive in allDrives)
+                    {
+                        if (drive.IsReady == false || drive.AvailableFreeSpace == 0) continue;
+                        if (drive.VolumeLabel.Equals("HAKCHI2"))
+                        {                                                        
+                            var savesPath = Path.Combine(Path.GetPathRoot(drive.RootDirectory.FullName).ToLower(), "hakchi", "saves");
+                            this.exportDirectory = Path.Combine(drive.RootDirectory.FullName, "hakchi", "games");
+                            this.exportLinked = ConfigIni.Instance.ExportLinked;
+
+                            if (ConfigIni.Instance.SeparateGameStorage)
+                            {
+                                if (ConfigIni.Instance.ConsoleType == hakchi.ConsoleType.Unknown)
+                                {
+                                    ErrorForm.Show(tasker.HostForm, Resources.ExportGames, Resources.CriticalError, "Unknown console type!", Resources.sign_error);
+                                    return Tasker.Conclusion.Abort;
+                                }
+
+                                this.exportDirectory = Path.Combine(
+                                    drive.RootDirectory.FullName, "hakchi", "games",
+                                    hakchi.ConsoleTypeToSystemCode[ConfigIni.Instance.ConsoleType]);
+                            }
+                            else
+                            {
+                                this.exportDirectory = Path.Combine(
+                                    drive.RootDirectory.FullName, "hakchi", "games");
+                            }
+
+                            if (!Directory.Exists(this.exportDirectory))
+                                Directory.CreateDirectory(this.exportDirectory);
+                            if (!Directory.Exists(savesPath))
+                                Directory.CreateDirectory(savesPath);
+                            copyMode = exportLinked ? NesApplication.CopyMode.LinkedExport : NesApplication.CopyMode.Export;
+                            return Tasker.Conclusion.Success;
+                        }
+                    }
+                }
+
                 using (ExportGamesDialog driveSelectDialog = new ExportGamesDialog())
                 {
                     tasker.PushState(Tasker.State.Paused);

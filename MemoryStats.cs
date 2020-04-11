@@ -120,13 +120,27 @@ namespace com.clusterrr.hakchi_gui
         {
             if (!hakchi.Shell.IsOnline)
                 return -1;
+
+            long usbDriveFree = 0;
+            if (ConfigIni.Instance.UsbModeOnly && ConfigIni.Instance.AutoSelectHakchi2Usb)
+            {
+                DriveInfo[] allDrives = DriveInfo.GetDrives();
+                foreach (DriveInfo drive in allDrives)
+                {
+                    if(drive.IsReady && drive.VolumeLabel.Equals("HAKCHI2"))
+                    {
+                        usbDriveFree = drive.AvailableFreeSpace;
+                    }
+                }
+            }
+            
             if (ConfigIni.Instance.SeparateGameStorage)
             {
-                return StorageFree + CurrentCollectionSize() + NonMultibootGamesSize + ExtraFilesSize - ReservedMemory;
+                return StorageFree + CurrentCollectionSize() + NonMultibootGamesSize + ExtraFilesSize - ReservedMemory + usbDriveFree;
             }
             else
             {
-                return StorageFree + AllGamesSize - ReservedMemory;
+                return StorageFree + AllGamesSize - ReservedMemory + usbDriveFree;
             }
         }
 

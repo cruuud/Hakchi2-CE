@@ -108,6 +108,7 @@
             this.compressBoxArtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.centerBoxArtThumbnailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disableHakchi2PopupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enableInformationScrapeOnImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem25 = new System.Windows.Forms.ToolStripSeparator();
             this.developerToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devForceSshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,7 +120,9 @@
             this.separateGamesForMultibootToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alwaysCopyOriginalGamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.useLinkedSyncToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.useUsbOnlyModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripSeparator();
             this.cloverconHackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetUsingCombinationOfButtonsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -284,7 +287,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.enableInformationScrapeOnImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArt)).BeginInit();
@@ -764,7 +766,7 @@
             this.separateGamesForMultibootToolStripMenuItem,
             this.alwaysCopyOriginalGamesToolStripMenuItem,
             this.useLinkedSyncToolStripMenuItem,
-            this.useUsbOnlyModeToolStripMenuItem,
+            this.toolStripMenuItem7,
             this.toolStripMenuItem16,
             this.cloverconHackToolStripMenuItem,
             this.globalCommandLineArgumentsexpertsOnluToolStripMenuItem,
@@ -893,6 +895,14 @@
             resources.ApplyResources(this.disableHakchi2PopupsToolStripMenuItem, "disableHakchi2PopupsToolStripMenuItem");
             this.disableHakchi2PopupsToolStripMenuItem.Click += new System.EventHandler(this.disableHakchi2PopupsToolStripMenuItem_Click);
             // 
+            // enableInformationScrapeOnImportToolStripMenuItem
+            // 
+            this.enableInformationScrapeOnImportToolStripMenuItem.Checked = true;
+            this.enableInformationScrapeOnImportToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.enableInformationScrapeOnImportToolStripMenuItem.Name = "enableInformationScrapeOnImportToolStripMenuItem";
+            resources.ApplyResources(this.enableInformationScrapeOnImportToolStripMenuItem, "enableInformationScrapeOnImportToolStripMenuItem");
+            this.enableInformationScrapeOnImportToolStripMenuItem.Click += new System.EventHandler(this.enableInformationScrapeOnImportToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem25
             // 
             this.toolStripMenuItem25.Name = "toolStripMenuItem25";
@@ -976,6 +986,14 @@
             resources.ApplyResources(this.useLinkedSyncToolStripMenuItem, "useLinkedSyncToolStripMenuItem");
             this.useLinkedSyncToolStripMenuItem.Click += new System.EventHandler(this.useLinkedSyncToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.useUsbOnlyModeToolStripMenuItem,
+            this.autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem});
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            resources.ApplyResources(this.toolStripMenuItem7, "toolStripMenuItem7");
+            // 
             // useUsbOnlyModeToolStripMenuItem
             // 
             this.useUsbOnlyModeToolStripMenuItem.Checked = true;
@@ -984,6 +1002,12 @@
             this.useUsbOnlyModeToolStripMenuItem.Name = "useUsbOnlyModeToolStripMenuItem";
             resources.ApplyResources(this.useUsbOnlyModeToolStripMenuItem, "useUsbOnlyModeToolStripMenuItem");
             this.useUsbOnlyModeToolStripMenuItem.Click += new System.EventHandler(this.useUsbOnlyModeToolStripMenuItem_Click);
+            // 
+            // autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem
+            // 
+            this.autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem.Name = "autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem";
+            resources.ApplyResources(this.autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem, "autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem");
+            this.autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem.Click += new System.EventHandler(this.autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem_Click);
             // 
             // toolStripMenuItem16
             // 
@@ -2169,14 +2193,6 @@
             resources.ApplyResources(this.progressBar1, "progressBar1");
             this.progressBar1.Name = "progressBar1";
             // 
-            // enableInformationScrapeOnImportToolStripMenuItem
-            // 
-            this.enableInformationScrapeOnImportToolStripMenuItem.Checked = true;
-            this.enableInformationScrapeOnImportToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.enableInformationScrapeOnImportToolStripMenuItem.Name = "enableInformationScrapeOnImportToolStripMenuItem";
-            resources.ApplyResources(this.enableInformationScrapeOnImportToolStripMenuItem, "enableInformationScrapeOnImportToolStripMenuItem");
-            this.enableInformationScrapeOnImportToolStripMenuItem.Click += new System.EventHandler(this.enableInformationScrapeOnImportToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AllowDrop = true;
@@ -2485,7 +2501,9 @@
         private System.Windows.Forms.ToolStripMenuItem removePrefixToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem enableInformationScrapeOnImportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem useUsbOnlyModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem;
     }
 }
 

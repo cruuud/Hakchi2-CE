@@ -619,6 +619,7 @@ namespace com.clusterrr.hakchi_gui
             disableHakchi2PopupsToolStripMenuItem.Checked = ConfigIni.Instance.DisablePopups;
             useLinkedSyncToolStripMenuItem.Checked = ConfigIni.Instance.SyncLinked;
             useUsbOnlyModeToolStripMenuItem.Checked = ConfigIni.Instance.UsbModeOnly;
+            autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem.Checked = ConfigIni.Instance.AutoSelectHakchi2Usb;
             alwaysCopyOriginalGamesToolStripMenuItem.Checked = ConfigIni.Instance.AlwaysCopyOriginalGames;
 
             // sfrom tool
@@ -2743,9 +2744,11 @@ namespace com.clusterrr.hakchi_gui
         }
 
         private void useUsbOnlyModeToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
-            ConfigIni.Instance.UsbModeOnly = useUsbOnlyModeToolStripMenuItem.Checked;
+        {
+            ConfigIni.Instance.UsbModeOnly = !ConfigIni.Instance.UsbModeOnly;
+            useUsbOnlyModeToolStripMenuItem.Checked = ConfigIni.Instance.UsbModeOnly;
             buttonStart.Enabled = !ConfigIni.Instance.UsbModeOnly;
+            ConfigIni.Save();
         }
 
 
@@ -3488,7 +3491,8 @@ namespace com.clusterrr.hakchi_gui
         {
             ConfigIni.Instance.SeparateGameLocalStorage = separateGamesStorageToolStripMenuItem.Checked;
             SaveConfig();
-            LoadGames();
+            //Not nice who-ever used the default (true), that fucking destroys the list already in Hakchi!
+            LoadGames(false);
         }
 
         private void switchRunningFirmwareToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4036,5 +4040,14 @@ namespace com.clusterrr.hakchi_gui
             enableInformationScrapeOnImportToolStripMenuItem.Checked = ConfigIni.Instance.EnableImportScraper;
             ConfigIni.Save();
         }
+
+        private void autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigIni.Instance.AutoSelectHakchi2Usb = !ConfigIni.Instance.AutoSelectHakchi2Usb;
+            autoselectHAKCHI2VolumeAsExternalUSBToolStripMenuItem.Checked = ConfigIni.Instance.AutoSelectHakchi2Usb;
+            ConfigIni.Save();
+            new Thread(RecalculateSelectedGamesThread).Start();
+        }
+
     }
 }
